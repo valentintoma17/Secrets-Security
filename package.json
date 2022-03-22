@@ -15,7 +15,7 @@
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^7.0.0"
   },
-  "name": "secrets---starting-code",
+  "name": "secrets",
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
@@ -24,11 +24,11 @@
   {
   	  "start": "node app.js"
   },
-	 "engines": {
- 	   "node": "16.13.2"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "engines": {
+ 	   "node": "16.13.2"
+  },
   "description": ""
 }
