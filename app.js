@@ -36,9 +36,16 @@ mongoose.connect('mongodb+srv://admin-tom:ei99d9Mxov9rittT@cluster0.o883g.mongod
 const userSchema = new mongoose.Schema({
   email: String,
   password: String,
-  googleId: String,
-  facebookId: String,
-  secret: Array
+  googleId: {
+        type: String,
+        unique:true
+    },
+  facebookId: {
+        type: String,
+        unique:true
+    },
+  secret: Array,
+  username: String
 });
 
 userSchema.plugin(passportLocalMongoose);
@@ -60,7 +67,8 @@ passport.deserializeUser(function(id, done) {
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "https://security-secrets.herokuapp.com/auth/google/secrets"
+    callbackURL: "https://security-secrets.herokuapp.com/auth/google/secrets",
+    passReqToCallback   : true
   },
   function(accessToken, refreshToken, profile, cb) {
     console.log(profile);
