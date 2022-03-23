@@ -28,7 +28,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-mongoose.connect('mongodb+srv://admin-tom:ei99d9Mxov9rittT@cluster0.o883g.mongodb.net/userDB', {
+mongoose.connect("mongodb+srv://"+ process.env.MONGO_ADMIN +":"+ process.env.MONGO_PASS +"@cluster0.o883g.mongodb.net/userDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
